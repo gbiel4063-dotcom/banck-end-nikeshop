@@ -1,0 +1,20 @@
+// use prisma-8
+
+model Product {
+  id        Int      @id @default(autoincrement() )
+  name      String
+  description     String
+  imageURL     String  
+  price    Decimal
+  discont String?
+  variation  variationproduct[]
+}
+ model variationproduct{
+id Int @id @default(autoincrement())
+ProductId Int 
+Product Product @relation(fields:[ProductId],references: [id])
+size String
+color String
+stock Int
+ }
+
